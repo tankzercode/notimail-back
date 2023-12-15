@@ -32,19 +32,19 @@ server.listen(port, async () => {
   try {
     await sequelize.authenticate();
     console.log('Connection has been established successfully.');
-    await User.sync({ force: true });
-    const salt = await bcrypt.genSalt(10);
+    // await User.sync({ force: true });
+    // const salt = await bcrypt.genSalt(10);
 
-    const user = await User.create({
-      first_name: "root",
-      last_name: "root",
-      firm_name: "root",
-      email: "root",
-      phone_number: "root",
-      password: await bcrypt.hash("root", salt),
-      is_admin: true,
-      has_mail: false
-    });
+    // const user = await User.create({
+    //   first_name: "root",
+    //   last_name: "root",
+    //   firm_name: "root",
+    //   email: "root",
+    //   phone_number: "root",
+    //   password: await bcrypt.hash("root", salt),
+    //   is_admin: true,
+    //   has_mail: false
+    // });
   } catch (error) {
     console.error('Unable to connect to the database:', error);
   }
